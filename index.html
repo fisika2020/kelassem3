@@ -7,6 +7,7 @@
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;300;400&display=swap');
 h2 {margin: 0; font-family: 'Inter', sans-serif; font-weight: 800;}
+h3 {font-family: 'Inter', sans-serif; font-weight: 800;}
 p {font-family: 'Inter', sans-serif; font-weight: 300; margin-top: 0;}
 form {margin: 0 0 1em 1em;}
 .label {font-family: 'Inter', sans-serif; font-weight: 400; margin: .25em 0 0 1em;}
@@ -19,6 +20,7 @@ button {font-family: 'Inter', sans-serif; height: 30px; margin-left: 1em;}
   <body>
     <h2>Pastikan Anda Telah Login <a target="_blank" href="https://akademik.its.ac.id/myitsauth.php">myITS</a></h2>
     <p>dan anda harus masuk dari link di atas</p>
+    <h3>Semester 3</h3>
     <div class="flex">
       <div class="label">
         <p>Pilih Matkul</p>
@@ -26,7 +28,7 @@ button {font-family: 'Inter', sans-serif; height: 30px; margin-left: 1em;}
       </div>
       <div class="form-group">
         <form>
-          <select id="matkul">  
+          <select id="mat3">  
             <option value="4301">Mekanika I</option>  
             <option value="4302">Gelombang</option>  
             <option value="4303">Termodinamika</option>  
@@ -36,7 +38,7 @@ button {font-family: 'Inter', sans-serif; height: 30px; margin-left: 1em;}
           </select>  
         </form>   
         <form>
-          <select id="kelas">  
+          <select id="kel3">  
             <option value="A">A</option>  
             <option value="B">B</option>  
             <option value="C">C</option>  
@@ -44,12 +46,36 @@ button {font-family: 'Inter', sans-serif; height: 30px; margin-left: 1em;}
         </form>   
       </div>
     </div>
-    <button type="submit" onclick="buka()">Buka Daftar Peserta</button>
+    <button type="submit" onclick="buka(3)">Buka Daftar Peserta</button>
+    <h3>Semester 5</h3>
+    <div class="flex">
+      <div class="label">
+        <p>Pilih Matkul</p>
+        <p>Pilih Kelas</p>
+      </div>
+      <div class="form-group">
+        <form>
+          <select id="mat5">  
+            <option value="4505">Optoelektronika</option>  
+            <option value="4605">Metode Eksplorasi Geofisika</option>  
+          </select>  
+        </form>   
+        <form>
+          <select id="kel5">  
+            <option value="A">A</option>  
+            <option value="B">B</option>  
+          </select>  
+        </form>   
+      </div>
+    </div>
+    <button type="submit" onclick="buka(5)">Buka Daftar Peserta</button>
   </body>
   <script>
-    function buka() {
-      let matkul = document.getElementById("matkul").value;
-      let kelas = document.getElementById("kelas").value;
+    function buka(sem) {
+      let matn = "mat" + sem
+      let keln = "kel" + sem
+      let matkul = document.getElementById(matn).value;
+      let kelas = document.getElementById(keln).value;
       let url = `https://akademik.its.ac.id/lv_peserta.php?mkJur=11100&mkID=SF${matkul}&mkSem=1&mkThn=2021&mkKelas=${kelas}`;
       window.open(url, '_blank');
     }
