@@ -4,35 +4,54 @@
     <title>Daftar Peserta Kelas myITS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800;300;400&display=swap');
+h2 {margin: 0; font-family: 'Inter', sans-serif; font-weight: 800;}
+p {font-family: 'Inter', sans-serif; font-weight: 300; margin-top: 0;}
+form {margin: 0 0 1em 1em;}
+.label {font-family: 'Inter', sans-serif; font-weight: 400; margin: .25em 0 0 1em;}
+.label > p {margin-bottom: 1.55em;}
+.flex {display: flex;}
+select {font-family: 'Inter', sans-serif; height: 30px;}
+button {font-family: 'Inter', sans-serif; height: 30px; margin-left: 1em;}
+</style>
   </head>
   <body>
-    <h2>Pastikan anda telah Login <a target="_blank" href="https://akademik.its.ac.id/myitsauth.php">myITS</a></h2>
-    <form><label>Pilih Matkul</label>  
-      <select id="matkul">  
-        <option value="4301">Mekanika I</option>  
-        <option value="4302">Gelombang</option>  
-        <option value="4303">Termodinamika</option>  
-        <option value="4304">Fisika Matematika II</option>  
-        <option value="4305">Elektronika</option>  
-        <option value="4306">Metode Pengukuran Fisika</option>  
-      </select>  
-    </form>   
-    <form><label>Pilih Kelas</label>  
-      <select id="kelas">  
-        <option value="A">A</option>  
-        <option value="B">B</option>  
-        <option value="C">C</option>  
-      </select>  
-    </form>   
+    <h2>Pastikan Anda Telah Login <a target="_blank" href="https://akademik.its.ac.id/myitsauth.php">myITS</a></h2>
+    <p>dan anda harus masuk dari link di atas</p>
+    <div class="flex">
+      <div class="label">
+        <p>Pilih Matkul</p>
+        <p>Pilih Kelas</p>
+      </div>
+      <div class="form-group">
+        <form>
+          <select id="matkul">  
+            <option value="4301">Mekanika I</option>  
+            <option value="4302">Gelombang</option>  
+            <option value="4303">Termodinamika</option>  
+            <option value="4304">Fisika Matematika II</option>  
+            <option value="4305">Elektronika</option>  
+            <option value="4306">Metode Pengukuran Fisika</option>  
+          </select>  
+        </form>   
+        <form>
+          <select id="kelas">  
+            <option value="A">A</option>  
+            <option value="B">B</option>  
+            <option value="C">C</option>  
+          </select>  
+        </form>   
+      </div>
+    </div>
     <button type="submit" onclick="buka()">Buka Daftar Peserta</button>
   </body>
-      <script>
-        function buka() {
-                  let matkul = document.getElementById("matkul").value
-                  let kelas = document.getElementById("kelas").value
-                  let url = `https://akademik.its.ac.id/lv_peserta.php?mkJur=11100&mkID=SF${matkul}&mkSem=1&mkThn=2021&mkKelas=${kelas}`
-                  window.open(url, '_blank');
-                }
-      </script>
+  <script>
+    function buka() {
+      let matkul = document.getElementById("matkul").value;
+      let kelas = document.getElementById("kelas").value;
+      let url = `https://akademik.its.ac.id/lv_peserta.php?mkJur=11100&mkID=SF${matkul}&mkSem=1&mkThn=2021&mkKelas=${kelas}`;
+      window.open(url, '_blank');
+    }
+  </script>
 </html>
